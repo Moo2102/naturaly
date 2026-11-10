@@ -30,6 +30,7 @@ Voraussetzung: WordPress ≥ 6.6, PHP ≥ 7.4.
 ## Performance & Struktur
 
 - **Tempo:** Systemschriften, Theme-CSS wird inline ausgegeben, Emoji-Skript und überflüssige Head-Links sind entfernt.
+- **Bilder in der Beitragsliste:** Startseite, Archive und Suche zeigen das Beitragsbild. Ist keines gesetzt, wird automatisch das erste Bild aus dem Beitrag verwendet (16:9, verlinkt auf den Beitrag).
 - **Saubere Überschriften:** genau eine H1 pro Seite. Auf der Startseite ist das der Untertitel der Website.
 
 Das Theme gibt bewusst **keine SEO-Tags** aus (Meta-Description, Open Graph, strukturierte Daten). Dafür ist ein SEO-Plugin zuständig, z. B. The SEO Framework, Yoast oder Rank Math.

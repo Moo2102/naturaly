@@ -3,7 +3,7 @@ Contributors: naturaly
 Requires at least: 6.6
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,9 @@ typography, one green accent, generous whitespace and system fonts for fast
 loading. It ships with a Dark style variation.
 
 == Changelog ==
+
+= 1.3.0 =
+* Post lists (home, archives, search) show the featured image, or the first image from the post content when no featured image is set.
 
 = 1.2.0 =
 * Removed the built-in SEO module (meta description, canonical URLs, Open Graph, Twitter cards, JSON-LD, 404 noindex). Use an SEO plugin instead.

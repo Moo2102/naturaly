@@ -10,6 +10,23 @@
 	padding-top: 0;
 }
 
+/* Post list image (featured image, or the first image of the post). */
+.naturaly-post-thumb {
+	margin: 0 0 var(--wp--preset--spacing--30);
+}
+
+.naturaly-post-thumb a {
+	display: block;
+}
+
+.naturaly-post-thumb img {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+}
+
 /* Titles in lists: no underline until hover. */
 .naturaly-post-item .wp-block-post-title a {
 	text-decoration: none;
