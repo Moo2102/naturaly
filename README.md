@@ -9,7 +9,7 @@ Schwarz/Weiß mit einem grünen Akzent, einspaltig, Systemschriften (keine exter
 
 ## Installation
 
-**Als ZIP (empfohlen):** [`releases/naturaly-1.0.0.zip`](releases/naturaly-1.0.0.zip) herunterladen und in WP-Admin unter
+**Als ZIP (empfohlen):** [`naturaly.zip` (neueste Version)](https://github.com/moo2102/naturaly/releases/latest/download/naturaly.zip) herunterladen und in WP-Admin unter
 *Design → Themes → Theme hinzufügen → Theme hochladen* installieren. Vor dem Aktivieren die *Live-Vorschau* nutzen.
 
 **Per Git/SFTP:** Repo nach `wp-content/themes/naturaly` klonen bzw. hochladen, danach unter *Design → Themes* aktivieren.
@@ -38,8 +38,12 @@ Voraussetzung: WordPress ≥ 6.6, PHP ≥ 7.4.
 
 ## Releases
 
-Fertige, direkt installierbare ZIP-Dateien liegen in [`releases/`](releases/):
+Installierbare ZIP-Dateien gibt es unter [GitHub Releases](https://github.com/moo2102/naturaly/releases).
+Der Link [`releases/latest/download/naturaly.zip`](https://github.com/moo2102/naturaly/releases/latest/download/naturaly.zip) zeigt immer auf die neueste Version.
 
-| Version | Datei |
-|---|---|
-| 1.0.0 | [`naturaly-1.0.0.zip`](releases/naturaly-1.0.0.zip) |
+**Neue Version veröffentlichen:**
+
+1. `Version:` in `style.css` (und `Stable tag` in `readme.txt`) erhöhen und committen.
+2. Passenden Tag pushen, z. B. `git tag v1.0.1 && git push origin v1.0.1`.
+3. Der Workflow `.github/workflows/release.yml` baut `naturaly.zip` und legt das Release an.
+   Stimmt der Tag nicht mit der Version in `style.css` überein, bricht er ab.

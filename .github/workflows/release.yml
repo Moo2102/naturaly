@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check version matches style.css
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          THEME_VERSION="$(grep -m1 '^Version:' style.css | awk '{print $2}')"
+          if [ "$TAG_VERSION" != "$THEME_VERSION" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match style.css Version $THEME_VERSION"
+            exit 1
+          fi
+
+      - name: Build theme ZIP
+        run: |
+          mkdir -p build/naturaly
+          git ls-files \
+            | grep -v -E '^(\.github/|README\.md$|\.gitignore$|\.gitattributes$)' \
+            | xargs -I{} cp --parents {} build/naturaly/
+          (cd build && zip -r -q ../naturaly.zip naturaly)
+          unzip -l naturaly.zip
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" naturaly.zip \
+            --title "Naturaly ${GITHUB_REF_NAME#v}" \
+            --notes "Installation: \`naturaly.zip\` herunterladen und in WP-Admin unter *Design → Themes → Theme hinzufügen → Theme hochladen* installieren."
