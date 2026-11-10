@@ -3,10 +3,14 @@
 Minimalistisches, cleanes Block-Theme (Full Site Editing) für Blogs und Magazine.
 Schwarz/Weiß mit einem grünen Akzent, einspaltig, Systemschriften (keine externen Fonts, DSGVO-freundlich).
 
+![Naturaly – Vorschau der Blog-Startseite](screenshot.png)
+
+*Designvorschau der Startseite mit Beispielinhalten, erzeugt aus den Farben, Größen und Abständen des Themes. Die echte Darstellung kann je nach Inhalten und Plugins leicht abweichen.*
+
 ## Installation
 
-**Als ZIP:** Repo als ZIP herunterladen, den Ordner in `naturaly` umbenennen, neu zippen und dann
-*Design → Themes → Theme hinzufügen → Theme hochladen*.
+**Als ZIP (empfohlen):** [`releases/naturaly-1.0.0.zip`](releases/naturaly-1.0.0.zip) herunterladen und in WP-Admin unter
+*Design → Themes → Theme hinzufügen → Theme hochladen* installieren. Vor dem Aktivieren die *Live-Vorschau* nutzen.
 
 **Per Git/SFTP:** Repo nach `wp-content/themes/naturaly` klonen bzw. hochladen, danach unter *Design → Themes* aktivieren.
 
@@ -31,3 +35,11 @@ Voraussetzung: WordPress ≥ 6.6, PHP ≥ 7.4.
 - **Blog-Intro:** zeigt den Untertitel der Website (*Einstellungen → Allgemein*).
 
 Änderungen im Website-Editor werden in der Datenbank gespeichert und überschreiben die Dateien im Theme.
+
+## Releases
+
+Fertige, direkt installierbare ZIP-Dateien liegen in [`releases/`](releases/):
+
+| Version | Datei |
+|---|---|
+| 1.0.0 | [`naturaly-1.0.0.zip`](releases/naturaly-1.0.0.zip) |
