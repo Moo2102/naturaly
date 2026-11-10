@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -14,14 +15,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check version matches style.css
+      - name: Determine version
         run: |
-          TAG_VERSION="${GITHUB_REF_NAME#v}"
           THEME_VERSION="$(grep -m1 '^Version:' style.css | awk '{print $2}')"
-          if [ "$TAG_VERSION" != "$THEME_VERSION" ]; then
-            echo "::error::Tag $GITHUB_REF_NAME does not match style.css Version $THEME_VERSION"
-            exit 1
+          if [ "$GITHUB_REF_TYPE" = "tag" ]; then
+            TAG="$GITHUB_REF_NAME"
+            if [ "${TAG#v}" != "$THEME_VERSION" ]; then
+              echo "::error::Tag $TAG does not match style.css Version $THEME_VERSION"
+              exit 1
+            fi
+          else
+            # Manual run: tag is derived from style.css and created by the release step.
+            TAG="v$THEME_VERSION"
           fi
+          echo "TAG=$TAG" >> "$GITHUB_ENV"
+          echo "VERSION=$THEME_VERSION" >> "$GITHUB_ENV"
 
       - name: Build theme ZIP
         run: |
@@ -36,6 +44,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" naturaly.zip \
-            --title "Naturaly ${GITHUB_REF_NAME#v}" \
+          gh release create "$TAG" naturaly.zip \
+            --target "$GITHUB_SHA" \
+            --title "Naturaly $VERSION" \
             --notes "Installation: \`naturaly.zip\` herunterladen und in WP-Admin unter *Design → Themes → Theme hinzufügen → Theme hochladen* installieren."

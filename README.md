@@ -44,6 +44,7 @@ Der Link [`releases/latest/download/naturaly.zip`](https://github.com/moo2102/na
 **Neue Version veröffentlichen:**
 
 1. `Version:` in `style.css` (und `Stable tag` in `readme.txt`) erhöhen und committen.
-2. Passenden Tag pushen, z. B. `git tag v1.0.1 && git push origin v1.0.1`.
-3. Der Workflow `.github/workflows/release.yml` baut `naturaly.zip` und legt das Release an.
-   Stimmt der Tag nicht mit der Version in `style.css` überein, bricht er ab.
+2. Release auslösen, auf eine der beiden Arten:
+   - **Manuell:** *Actions → Release → Run workflow*. Der Tag (`v` + Version aus `style.css`) wird automatisch angelegt.
+   - **Per Tag:** z. B. `git tag v1.0.1 && git push origin v1.0.1`. Stimmt der Tag nicht mit `style.css` überein, bricht der Workflow ab.
+3. Der Workflow `.github/workflows/release.yml` baut `naturaly.zip` und hängt es an das Release.
