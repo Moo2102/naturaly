@@ -3,7 +3,7 @@ Contributors: naturaly
 Requires at least: 6.6
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,13 @@ typography, one green accent, generous whitespace and system fonts for fast
 loading. It ships with a Dark style variation.
 
 == Changelog ==
+
+= 1.1.0 =
+* SEO: meta description, canonical URLs for archives, Open Graph and Twitter cards.
+* SEO: JSON-LD structured data (WebSite, Organization, WebPage, BlogPosting, BreadcrumbList).
+* SEO: 404 pages are set to noindex; the blog home now has a real H1.
+* All SEO output switches off automatically when an SEO plugin is active.
+* Performance: theme CSS is inlined, emoji scripts and unnecessary head links removed.
 
 = 1.0.0 =
 * Initial release.

@@ -27,6 +27,24 @@ Voraussetzung: WordPress ≥ 6.6, PHP ≥ 7.4.
 | `patterns/` | Beitragsliste, Blog-Intro, Kommentare, Suche, 404, Footer |
 | `assets/css/theme.css` | Kleine Ergänzungen, die `theme.json` nicht abbildet |
 
+## SEO & Performance
+
+Eingebaut (ab Version 1.1.0):
+
+- **Meta-Description** aus Textauszug, Beitragsanfang, Kategoriebeschreibung oder Untertitel der Website (max. 160 Zeichen).
+- **Canonical-URLs** auch für Startseite, Kategorien, Schlagwörter und Seite 2, 3 … (für Beiträge und Seiten macht das WordPress selbst).
+- **Open Graph & Twitter Cards** für schöne Vorschauen auf Facebook, WhatsApp, LinkedIn & Co. (Beitragsbild oder Website-Icon).
+- **Strukturierte Daten (JSON-LD):** WebSite mit Suchfunktion, Organization, WebPage, BlogPosting (Autor, Datum, Bild, Kategorie) und Breadcrumbs.
+- **Saubere Überschriften:** genau eine H1 pro Seite. Auf der Startseite ist das der Untertitel der Website.
+- **Robots:** 404-Seiten auf `noindex` (Suchergebnisse macht WordPress selbst).
+- **Tempo:** Systemschriften, Theme-CSS wird inline ausgegeben, Emoji-Skript und überflüssige Head-Links sind entfernt.
+
+Ist ein SEO-Plugin aktiv (Yoast, Rank Math, AIOSEO, SEOPress, The SEO Framework, Slim SEO), schaltet sich die SEO-Ausgabe des Themes **automatisch ab**, damit nichts doppelt ausgegeben wird. Manuell abschalten: `add_filter( 'naturaly_seo_enabled', '__return_false' );`
+
+Anpassbar per Filter: `naturaly_seo_description`, `naturaly_schema_publisher` (z. B. `Person` statt `Organization`), `naturaly_schema_graph`, `naturaly_disable_emojis`.
+
+Deutsche Übersetzung (du- und Sie-Form) liegt in `languages/`.
+
 ## Anpassen
 
 - **Akzentfarbe:** in `theme.json` → `settings.color.palette` → `accent` (oder im Website-Editor unter *Stile → Farben*).
