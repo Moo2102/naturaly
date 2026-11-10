@@ -27,21 +27,14 @@ Voraussetzung: WordPress ≥ 6.6, PHP ≥ 7.4.
 | `patterns/` | Beitragsliste, Blog-Intro, Kommentare, Suche, 404, Footer |
 | `assets/css/theme.css` | Kleine Ergänzungen, die `theme.json` nicht abbildet |
 
-## SEO & Performance
+## Performance & Struktur
 
-Eingebaut (ab Version 1.1.0):
-
-- **Meta-Description** aus Textauszug, Beitragsanfang, Kategoriebeschreibung oder Untertitel der Website (max. 160 Zeichen).
-- **Canonical-URLs** auch für Startseite, Kategorien, Schlagwörter und Seite 2, 3 … (für Beiträge und Seiten macht das WordPress selbst).
-- **Open Graph & Twitter Cards** für schöne Vorschauen auf Facebook, WhatsApp, LinkedIn & Co. (Beitragsbild oder Website-Icon).
-- **Strukturierte Daten (JSON-LD):** WebSite mit Suchfunktion, Organization, WebPage, BlogPosting (Autor, Datum, Bild, Kategorie) und Breadcrumbs.
-- **Saubere Überschriften:** genau eine H1 pro Seite. Auf der Startseite ist das der Untertitel der Website.
-- **Robots:** 404-Seiten auf `noindex` (Suchergebnisse macht WordPress selbst).
 - **Tempo:** Systemschriften, Theme-CSS wird inline ausgegeben, Emoji-Skript und überflüssige Head-Links sind entfernt.
+- **Saubere Überschriften:** genau eine H1 pro Seite. Auf der Startseite ist das der Untertitel der Website.
 
-Ist ein SEO-Plugin aktiv (Yoast, Rank Math, AIOSEO, SEOPress, The SEO Framework, Slim SEO), schaltet sich die SEO-Ausgabe des Themes **automatisch ab**, damit nichts doppelt ausgegeben wird. Manuell abschalten: `add_filter( 'naturaly_seo_enabled', '__return_false' );`
+Das Theme gibt bewusst **keine SEO-Tags** aus (Meta-Description, Open Graph, strukturierte Daten). Dafür ist ein SEO-Plugin zuständig, z. B. The SEO Framework, Yoast oder Rank Math.
 
-Anpassbar per Filter: `naturaly_seo_description`, `naturaly_schema_publisher` (z. B. `Person` statt `Organization`), `naturaly_schema_graph`, `naturaly_disable_emojis`.
+Anpassbar per Filter: `naturaly_disable_emojis`.
 
 Deutsche Übersetzung (du- und Sie-Form) liegt in `languages/`.
 

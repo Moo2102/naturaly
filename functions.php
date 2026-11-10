@@ -74,5 +74,3 @@ function naturaly_clean_head() {
 	remove_action( 'wp_head', 'wp_generator' );
 }
 add_action( 'after_setup_theme', 'naturaly_clean_head' );
-
-require get_template_directory() . '/inc/seo.php';
